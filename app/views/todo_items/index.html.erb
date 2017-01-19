@@ -8,6 +8,12 @@
               <span class="mdl-list__item-primary-content js-todo-item">
                 <i class="material-icons js-todo-list-item__checkbox unchecked"> ic_check_box_outline_blank </i>
                 <%= todo_item.title %>
+                <%= button_to todo_item_path(todo_item),
+                  class: 'mdl-button mdl-js-button mdl-js-ripple-effect',
+                  method: :delete, id: todo_item.id do %>
+                  <i class="material-icons">ic_delete_forever</i>
+                  Delete
+                <% end %>
               </span>
             </li>
           <% end %>
