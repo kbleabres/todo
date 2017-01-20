@@ -7,6 +7,7 @@ feature 'User deletes todo item' do
 
     visit todo_items_path
 
+    click_button "DELETE"
     find("##{todo_item.id}").click
 
     expect(page).to_not have_content('Create todo app')

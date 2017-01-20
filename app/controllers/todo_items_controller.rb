@@ -17,6 +17,12 @@ class TodoItemsController < ApplicationController
     redirect_to todo_items_path
   end
 
+  def update
+    @todo_item = TodoItem.find(params[:id])
+    @todo_item.update_attributes(complete: !@todo_item.complete?)
+    redirect_to todo_items_path
+  end
+
   private
   def todo_item_params
     params.require(:todo_item).permit(:title, :id)
