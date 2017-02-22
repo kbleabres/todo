@@ -15,10 +15,11 @@
                   Delete
                 <% end %>
 
-                <%= button_to todo_item_path(todo_item),
-                  class: 'mdl-button mdl-js-button mdl-js-ripple-effect',
-                  method: :patch do %>
-                  <%= "#{todo_item.complete? ? 'Mark as undone' : 'Mark as done'}" %>
+                <%= button_to todo_item_completions_path(todo_item),
+                  class: "mdl-button mdl-js-button mdl-js-ripple-effect",
+                  disabled: todo_item.completed?,
+                  method: :create do %>
+                  <%= "#{todo_item.completed? ? 'Done' : 'Mark as done'}" %>
                 <% end %>
               </span>
             </li>
